@@ -113,4 +113,4 @@ telegraph = function (obj) {
     };
 
     return obj;
-} // telegraph( )
+}; // telegraph( )
