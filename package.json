@@ -1,7 +1,7 @@
 {
   "name": "telegraph-events",
   "description": "Minimal event emitter forked from smokesignals.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Dustin Brown <dubrowgn.com> (https://dubrowgn.com)",
   "bugs": {
     "url": "https://github.com/dubrowgn/telegraph/issues",
