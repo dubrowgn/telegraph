@@ -115,7 +115,7 @@ your objects (`on`, `once`, `off` and `emit`).
 By the way, all methods, except for `emit`, are chainable:
 
 ```javascript
-var jill = smokesignals.convert({})
+var jill = telegraph()
     .on('event one', function() { ... })
     .on('event two', function() { ... })
     .once('event three', function() { ... })
