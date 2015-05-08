@@ -17,7 +17,10 @@
     "url": "git://github.com/dubrowgn/telegraph.git"
   },
   "scripts": {
-    "release": "uglifyjs telegraph.js -o telegraph.min.js -m -c",
+  	"banner": "bash -c 'echo -e \"// v$(npm view . version)\\n// https://github.com/dubrowgn/telegraph\"' > banner.tmp",
+  	"clean": "rm *tmp",
+  	"minify": "uglifyjs telegraph.js -o min.tmp -m -c",
+    "release": "npm run banner && npm run minify && cat banner.tmp min.tmp > telegraph.min.js && npm run clean",
     "test": "node ./test.js"
   }
 }
