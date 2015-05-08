@@ -1,5 +1,7 @@
 var assert = require('assert');
 
+assert.strictEqual(0, 1);
+
 console.log('test do not pollute node globals when requiring');
     var telegraph = 17;
     require('./index');
