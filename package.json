@@ -1,23 +1,23 @@
 {
-	"name":"telegraph-events",
-	"description":"Minimal event emitter forked from smokesignals.js",
-	"version":"1.0.0",
-	"author":"Dustin Brown <dubrowgn.com> (https://dubrowgn.com)",
-	"bugs":{
-		"url":"https://github.com/dubrowgn/telegraph/issues",
-		"email":"dubrowgn@gmail.com"
-	},
-	"keywords":[
-		"events",
-		"emitter",
-		"trigger"
-	],
-	"repository":{
-		"type":"git",
-		"url":"git://github.com/dubrowgn/telegraph.git"
-	},
-	"scripts":{
-		"build":"echo FIXME",
-		"test":"node ./test.js"
-	}
+  "name": "telegraph-events",
+  "description": "Minimal event emitter forked from smokesignals.js",
+  "version": "1.0.0",
+  "author": "Dustin Brown <dubrowgn.com> (https://dubrowgn.com)",
+  "bugs": {
+    "url": "https://github.com/dubrowgn/telegraph/issues",
+    "email": "dubrowgn@gmail.com"
+  },
+  "keywords": [
+    "events",
+    "emitter",
+    "trigger"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dubrowgn/telegraph.git"
+  },
+  "scripts": {
+    "release": "uglifyjs telegraph.js -o telegraph.min.js -m -c",
+    "test": "node ./test.js"
+  }
 }
