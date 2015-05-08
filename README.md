@@ -22,82 +22,103 @@ Loading
 
 Just include the Telegraph script:
 
-    <script src="telegraph.js"></script>
+```html
+<script src="telegraph.js"></script>
+```
 
 Using
 -----
 
 Make any object an event emitter:
 
-    var jill = {};
-    telegraph(jill);
+```javascript
+var jill = {};
+telegraph(jill);
 
-    // or...
-    var jill = telegraph();
+// or...
+var jill = telegraph();
+```
 
 Or if you prefer constructors:
 
-    function Person() {
-        telegraph(this);
-    }
-    var jill = new Person();
+```javascript
+function Person() {
+    telegraph(this);
+}
+var jill = new Person();
+```
 
 Now you can listen for events:
 
-    function listener(name) {
-        window.alert('Hello ' + name + '!');
-    }
-    jill.on('say hello', listener);
+```javascript
+function listener(name) {
+    window.alert('Hello ' + name + '!');
+}
+jill.on('say hello', listener);
+```
 
 And emit events:
 
-    jill.emit('say hello', 'Jack');
-    // alerts: "Hello Jack!"
-    // returns: true
+```javascript
+jill.emit('say hello', 'Jack');
+// alerts: "Hello Jack!"
+// returns: true
+```
 
 And remove a listener:
 
-    jill.off('say hello', listener);
+```javascript
+jill.off('say hello', listener);
+```
 
 Or if you only want to listen for an event once:
 
-    jill.once('another event', function() {
-        window.alert("I'll only be called once!");
-    });
-    jill.emit('another event');
+```javascript
+jill.once('another event', function() {
+    window.alert("I'll only be called once!");
+});
+jill.emit('another event');
+```
 
 Or remove all listeners for an event:
 
-    jill.off('say hello');
+```javascript
+jill.off('say hello');
+```
 
 Or if you want to remove ALL listeners:
 
-    // just call off() with no parameters
-    jill.off();
+```javascript
+// just call off() with no parameters
+jill.off();
 
-    // or reconvert the object...
-    telegraph(jill);
+// or reconvert the object...
+telegraph(jill);
+```
 
 Or if you want to cancel the event chain:
 
-    // just return false from a handler
-    jill.on('event', function() { return false; });
-    jill.on('event', function() { console.log('event!'); });
+```javascript
+// just return false from a handler
+jill.on('event', function() { return false; });
+jill.on('event', function() { console.log('event!'); });
 
-    // emit now returns false, and 'event!' is not printed
-    jill.emit('event');
+// emit now returns false, and 'event!' is not printed
+jill.emit('event');
+```
 
 That's it! One global object (`telegraph`) and when used it adds 4 methods to
 your objects (`on`, `once`, `off` and `emit`).
 
 By the way, all methods, except for `emit`, are chainable:
 
-    var jill = smokesignals.convert({})
-      .on('event one', function() { ... })
-      .on('event two', function() { ... })
-      .once('event three', function() { ... })
-      .off ('event one')
-      ;
+```javascript
+var jill = smokesignals.convert({})
+    .on('event one', function() { ... })
+    .on('event two', function() { ... })
+    .once('event three', function() { ... })
+    .off ('event one');
+```
 
 [1]: https://bitbucket.org/bentomas/smokesignals.js
 [2]: http://microjs.com/#events

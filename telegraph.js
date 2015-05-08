@@ -18,6 +18,7 @@ telegraph = function (obj) {
      * Add a listener
      * @param {string} eventName The name of the event
      * @param {function} handler The handler function for the event
+     * @param {boolean} front Handler is inserted at the front of the call chain when true
      * @returns {object} This object for chaining
      */
     obj.on = function (eventName, handler, front) {
@@ -33,6 +34,7 @@ telegraph = function (obj) {
      * Add a listener that will only be called once
      * @param {string} eventName The name of the event
      * @param {function} handler The handler function for the event
+     * @param {boolean} front Handler is inserted at the front of the call chain when true
      * @returns {object} This object for chaining
      */
     obj.once = function (eventName, handler, front) {
