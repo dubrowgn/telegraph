@@ -1,7 +1,7 @@
 {
   "name": "telegraph-events",
   "description": "Minimal event emitter forked from smokesignals.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Dustin Brown <dubrowgn.com> (https://dubrowgn.com)",
   "bugs": {
     "url": "https://github.com/dubrowgn/telegraph/issues",
@@ -17,9 +17,9 @@
     "url": "git://github.com/dubrowgn/telegraph.git"
   },
   "scripts": {
-  	"banner": "bash -c 'echo -e \"// v$(npm view . version)\\n// https://github.com/dubrowgn/telegraph\"' > banner.tmp",
-  	"clean": "rm *tmp",
-  	"minify": "uglifyjs telegraph.js -o min.tmp -m -c",
+    "banner": "bash -c 'echo -e \"// v$(npm view . version)\\n// https://github.com/dubrowgn/telegraph\"' > banner.tmp",
+    "clean": "rm *tmp",
+    "minify": "uglifyjs telegraph.js -o min.tmp -m -c",
     "release": "npm run banner && npm run minify && cat banner.tmp min.tmp > telegraph.min.js && npm run clean",
     "test": "node ./test.js"
   }
