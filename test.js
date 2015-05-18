@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-console.log('test do not pollute node globals when requiring');
+console.log('do not pollute node globals');
     var telegraph = 17;
     require('./index');
     assert.strictEqual(telegraph, 17);
@@ -145,9 +145,9 @@ console.log('resetting');
     assert.equal(event8count, 1);
 
 console.log('cancelling');
-	var event9count = 0;
-	var event9handler = function() { event9count++; };
-	var event9cancelhandler = function() { return false; };
+    var event9count = 0;
+    var event9handler = function() { event9count++; };
+    var event9cancelhandler = function() { return false; };
     assert.strictEqual(emitter, emitter.on('event9', event9handler));
     assert.strictEqual(emitter, emitter.on('event9', event9cancelhandler));
     assert.strictEqual(emitter, emitter.on('event9', event9handler));
@@ -163,7 +163,7 @@ console.log('constructor paradigm');
     var event9count = 0;
 
     function Obj() {
-    telegraph(this);
+        telegraph(this);
     }
     var obj = new Obj();
 
@@ -179,3 +179,28 @@ console.log('constructor paradigm');
     assert.strictEqual(obj, obj.off('event9', event9handler));
     assert.strictEqual(true, obj.emit('event9'));
     assert.equal(event9count, 2);
+
+(function() {
+    console.log('mutate during emit');
+
+    var emitter = telegraph();
+
+    var i = 0;
+    var count = function() { i++; };
+    var countAndAdd = function() {
+        i++;
+        assert.strictEqual(emitter, emitter.on('mut', countAndAdd));
+    };
+
+    assert.strictEqual(emitter, emitter.on('mut', count));
+    assert.strictEqual(emitter, emitter.on('mut', countAndAdd));
+
+    assert.strictEqual(true, emitter.emit('mut'));
+    assert.strictEqual(2, i);
+
+    assert.strictEqual(true, emitter.emit('mut'));
+    assert.strictEqual(5, i);
+
+    assert.strictEqual(true, emitter.emit('mut'));
+    assert.strictEqual(10, i);
+})();

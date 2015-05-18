@@ -63,11 +63,11 @@ telegraph = function (obj) {
      * @returns {object} This object for chaining
      */
     obj.off = function (eventName, handler) {
-    	// if no eventName, clear all event handlers for all events
-    	if (eventName === undefined) {
-    		handlers = {};
-    		return obj;
-    	} // if
+        // if no eventName, clear all event handlers for all events
+        if (eventName === undefined) {
+            handlers = {};
+            return obj;
+        } // if
 
         // loop through all handlers for this eventName to see if the handler
         // passed in was any of them so we can remove it
@@ -102,7 +102,8 @@ telegraph = function (obj) {
         // loop through all handlers for this event name and call them all
         //		arguments is "array-like", so call slice() from list instead
         //		handlers can return false to cancel event
-        var list = handlers[eventName] || [];
+        //      copy list in case on()/off() are called during emit
+        var list = handlers[eventName] && handlers[eventName].slice() || [];
         var args = list.slice.call(arguments, 1);
         for (var i = 0; i < list.length; ++i) {
             if (list[i].apply(obj, args) === false)

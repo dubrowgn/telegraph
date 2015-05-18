@@ -8,7 +8,7 @@ A minimal event emitter for browsers, forked from Benjamin Thomas' [smokesignals
 This library has three goals:
 
 1. Make it easy and intuitive to listen for and initiate events on an object.
-2. Be as small as possible. Right now the minified version comes in at 514 bytes.
+2. Be as small as possible. Right now the minified version comes in at 528 bytes.
 3. Capability for handlers to cancel the event process.
 
 There are many other [wonderful libraries that do similar things][2], but none
