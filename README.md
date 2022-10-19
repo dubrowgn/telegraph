@@ -1,8 +1,6 @@
 Telegraph
 =============
 
-![Build status](https://travis-ci.org/dubrowgn/telegraph.svg?branch=master)
-
 A minimal event emitter for browsers, forked from Benjamin Thomas' [smokesignals.js][1].
 
 This library has three goals:
